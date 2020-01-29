@@ -24,6 +24,7 @@ class Song
     song.name = name
     song.save
     @@all << song
+    song
   end
 
 
