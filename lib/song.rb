@@ -47,9 +47,9 @@ class Song
     song_info = file_name.split(/[-.]/)
     song_info.each do |data|
       data[0] = song.artist
-      data[1] = song.name 
-    end 
-    song.save 
+      data[1] = song.name
+    end
+    song.save
   end
 
 end
