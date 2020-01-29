@@ -3,9 +3,10 @@ require 'pry'
 class Song
   attr_accessor :name
 
-  def self.create
+  @@all = []
+  def self.create(name)
     song = self.new
-    song.name = @name
-    song.save
+    song.name = name
+    @@all << song 
   end
 end
