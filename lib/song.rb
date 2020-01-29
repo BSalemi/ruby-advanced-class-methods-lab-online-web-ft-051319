@@ -3,8 +3,8 @@ require 'pry'
 class Song
 
   def self.create(name)
-    song = self.new 
+    song = self.new
     song.name = name
-    song.save 
-  end 
+    song.save
+  end
 end
