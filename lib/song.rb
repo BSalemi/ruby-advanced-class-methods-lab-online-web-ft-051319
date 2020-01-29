@@ -10,15 +10,15 @@ class Song
     song
   end
 
-  def self.new_by_name(name)
+  def self.new_by_name(song_name)
     song = self.new
-    song.name = name
+    song.name = song_name
     song
   end
 
-  def self.create_by_name(name)
+  def self.create_by_name(song_name)
     song = self.new
-    song.name = name
+    song.name = song_name
     @@all << song
     song
   end
@@ -32,16 +32,13 @@ class Song
     self.class.all << self
   end
 
-  def self.find_by_name(name)
+  def self.find_by_name(song_name)
     #iterate through all to find a song whose name is equal to the name that is being passed in as an argument
-    @@all.detect{|song| song.name == name}
+    @@all.detect{|song| song.name == song_name}
   end
 
-  def self.find_or_create_by_name(name)
-    if self.find_by_name(name) == nil
-        self.create_by_name(name)
-    else self.find_by_name(name)
-    end
+  def self.find_or_create_by_name(song_name)
+   self.find_by_name(song_name) || self.create_by_name(song_name)
   end
 
   def self.alphabetical
@@ -53,8 +50,8 @@ class Song
     artist_name = filename.split("-")[0].strip
     song.artist_name = artist_name
 
-    name = filename.split("-")[1].strip
-    song.name = name.chomp(".mp3")
+    song_name = filename.split("-")[1].strip
+    song.name = song_name.chomp(".mp3")
     song
   end
 
