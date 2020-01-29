@@ -45,10 +45,10 @@ class Song
   def self.new_from_filename(file_name)
     song = self.new
     song_info = file_name.split(/[-.]/)
-    binding.pry
     song_info.each do |data|
       data[0] = song.artist_name
       data[1] = song.name
+      binding.pry
     end
     song.save
   end
